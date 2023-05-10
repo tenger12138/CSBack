@@ -1,0 +1,55 @@
+server:
+  port: 9999
+
+
+#DataBase start
+spring:
+  datasource:
+    url: jdbc:mysql://bj-cynosdbmysql-grp-r396snku.sql.tencentcdb.com:23979/cs?useUnicode=true&characterEncoding=UTF-8
+    username: sa
+    password: Yhz010810
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+    servlet:
+      content-type: text/html
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  mail:
+    host: smtp.qq.com
+    username: 1343873415@qq.com
+    password: awpecbhcygryhjgb
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    com.itcodai.course03.dao: trace
+    # ??????
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    # ??????
+    org.hibernate.metamodel.model.convert.internal.NamedEnumValueConverter: trace
+mybatis-plus:
+  configuration:
+    # 日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: AUTO
+  mapper-locations: classpath:mappers/*.xml
+
+
+#阿里云oss配置
+oss:
+  keyid: "LTAI5tLAByTxqf2TQ5RqNN9u"
+  keysecret: "xvY8C68t8kW65MZJgRP5qFPD2YGs8v"
+  bucketname: "relics"
+  endpoint: "oss-cn-beijing.aliyuncs.com"
+
+debug: true
+
